@@ -1,0 +1,33 @@
+image: xxx
+
+cache:
+  paths:
+    - node_modules/
+
+# 配置 ssh key
+before_script:
+  - sh ./scripts/setSshKey.sh
+
+# 打 tag 后会执行，并向 gallery 上传编译后的文件
+# 一般用在 测试 和 正式上线 阶段，只向 gallery 上上传编译好的文件
+release:
+  tags:
+    - kubernetes
+  script:
+    - sh ./scripts/build.sh
+  artifacts:
+    paths:
+      - dist
+  only:
+    - tags
+
+# 向 branch 上提交时会执行，向 deploy.sh 里面定义的 serverList 的服务器部署
+# 一般用在开发调试阶段，每次 push 都会触发部署操作
+deploy_to_dev:
+  tags:
+    - kubernetes
+  script:
+    - sh ./scripts/build.sh
+    - sh ./scripts/deploy.sh
+  only:
+    - branches

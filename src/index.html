@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>react-antd-ts-rematch-template</title>
+  <style>
+    @keyframes ball-beat {
+      50% {
+        opacity: .2;
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75)
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+    }
+
+    .ball-beat {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: 200px
+    }
+
+    .ball-beat>div {
+      background-color: #06f;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      margin: 2px;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      display: inline-block;
+      -webkit-animation: ball-beat .7s 0s infinite linear;
+      animation: ball-beat .7s 0s infinite linear
+    }
+
+    .ball-beat>div:nth-child(2n-1) {
+      -webkit-animation-delay: -0.35s !important;
+      animation-delay: -0.35s !important
+    }
+  </style>
+</head>
+
+<body style="background: #f0f2f5;">
+  <div id="app" style="height: 100%;">
+    <div class="ball-beat">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+
+</html>

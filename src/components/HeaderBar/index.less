@@ -1,0 +1,37 @@
+.header-wrapper {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  padding: 0 16px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(226, 226, 226, 0.5);
+
+  .left-menu {
+    display: flex;
+    align-items: center;
+
+    .collapse-wrapper {
+      margin-right: 20px;
+    }
+  }
+
+  .right-menu {
+    display: flex;
+    justify-content: flex-end;
+    .account {
+      margin-left: 8px;
+      .name {
+        display: inline-block;
+        margin: 11px 0 0;
+        color: #000;
+        .icon-user {
+          padding-right: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
