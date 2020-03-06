@@ -1,6 +1,6 @@
 ## react-antd-ts-rematch-template
 
--
+- 一个基于 react + antd + typescript + rematch 的单页应用模板
 
 ### 版本更新
 
@@ -16,7 +16,7 @@
 - [自动构建及部署](docs/cicd.md)
 
 ### Get Start
-一个基于 react + antd + typescript + rematch 的单页应用模板
+
 - 命令
   - 安装依赖：`npm i`
   - 本地开发：`npm run dev`
