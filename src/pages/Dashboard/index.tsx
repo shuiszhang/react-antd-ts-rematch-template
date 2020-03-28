@@ -57,7 +57,7 @@ class Dashboard extends Component<IDashboardProps, null> {
       <Spin spinning={this.props.loading}>
         <div className="dashboard">
           <div className="container">
-            <div className="title">折线图33</div>
+            <div className="title">折线图</div>
             <Chart height={400} data={this.props.points} scale={scale1}>
               <Axis name="year" />
               <Axis name="value" />
