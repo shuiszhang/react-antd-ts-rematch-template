@@ -2,7 +2,7 @@ import { createModel } from '@rematch/core'
 
 export const main = createModel({
   state: {
-    collapsed: false
+    collapsed: false,
   },
 
   reducers: {
@@ -11,15 +11,15 @@ export const main = createModel({
     updateState(state, payload) {
       return {
         ...state,
-        ...payload
+        ...payload,
       }
     },
 
     toggleCollapsed(state) {
       return {
         ...state,
-        collapsed: !state.collapsed
+        collapsed: !state.collapsed,
       }
-    }
-  }
+    },
+  },
 })

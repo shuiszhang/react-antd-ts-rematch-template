@@ -11,12 +11,12 @@ import './index.less'
 const mapState = (state: IRootState) => ({
   points: state.dashboard.points,
   points2: state.dashboard.points2,
-  loading: state.loading.effects.dashboard.asyncGetData
+  loading: state.loading.effects.dashboard.asyncGetData,
 })
 
 // 此处映射 model 里面的方法(effects, reducers)到 props 上
 const mapDispatch = (dispatch: Dispatch) => ({
-  getData: dispatch.dashboard.asyncGetData
+  getData: dispatch.dashboard.asyncGetData,
 })
 
 // 此处放外部需要传递进来的 props 属性
@@ -36,34 +36,34 @@ class Dashboard extends Component<IDashboardProps, null> {
   render() {
     const scale1 = {
       value: {
-        min: 0
+        min: 0,
       },
       year: {
-        range: [0, 1]
-      }
+        range: [0, 1],
+      },
     }
     const scale2 = {
       value: {
-        tickInterval: 2
-      }
+        tickInterval: 2,
+      },
     }
     const scale3 = {
       year: {
         type: 'linear',
-        tickInterval: 50
-      }
+        tickInterval: 50,
+      },
     }
     return (
       <Spin spinning={this.props.loading}>
         <div className="dashboard">
           <div className="container">
-            <div className="title">折线图</div>
+            <div className="title">折线图33</div>
             <Chart height={400} data={this.props.points} scale={scale1}>
               <Axis name="year" />
               <Axis name="value" />
               <Tooltip
                 crosshairs={{
-                  type: 'y'
+                  type: 'y',
                 }}
               />
               <Geom type="line" position="year*value" size={2} />
@@ -74,7 +74,7 @@ class Dashboard extends Component<IDashboardProps, null> {
                 shape={'circle'}
                 style={{
                   stroke: '#fff',
-                  lineWidth: 1
+                  lineWidth: 1,
                 }}
               />
             </Chart>
@@ -86,7 +86,7 @@ class Dashboard extends Component<IDashboardProps, null> {
               <Axis name="value" />
               <Tooltip
                 crosshairs={{
-                  type: 'y'
+                  type: 'y',
                 }}
               />
               <Geom type="interval" position="year*value" />
@@ -104,7 +104,7 @@ class Dashboard extends Component<IDashboardProps, null> {
                 position="year*value"
                 style={{
                   lineWidth: 1,
-                  stroke: '#fff'
+                  stroke: '#fff',
                 }}
               >
                 <Label

@@ -11,11 +11,11 @@ const FormItem = Form.Item
 
 const mapState = (state: IRootState) => ({
   isRegister: state.account.isRegister,
-  loading: state.loading.effects.account.asyncRegister
+  loading: state.loading.effects.account.asyncRegister,
 })
 
 const mapDispatch = (dispatch: Dispatch) => ({
-  register: dispatch.account.asyncRegister
+  register: dispatch.account.asyncRegister,
 })
 
 interface IRegisterProps
@@ -25,7 +25,7 @@ interface IRegisterProps
     Partial<ReturnType<typeof mapDispatch>> {}
 
 class Register extends Component<IRegisterProps, any> {
-  handleSubmit = values => {
+  handleSubmit = (values) => {
     console.log('Received values of form: ', values)
     delete values.repeatPassword
     this.props.register(values)
@@ -69,9 +69,9 @@ class Register extends Component<IRegisterProps, any> {
             rules={[
               {
                 required: true,
-                message: '请再次输入以确认新密码'
+                message: '请再次输入以确认新密码',
               },
-              { validator: this.handleConfirmPassword }
+              { validator: this.handleConfirmPassword },
             ]}
           >
             <Input

@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Result, Button } from 'antd'
 
-const Page403 = withRouter(props => (
+const Page403 = withRouter((props) => (
   <Result
     status={403}
     title="403"
@@ -15,7 +15,7 @@ const Page403 = withRouter(props => (
   />
 ))
 
-const Page404 = withRouter(props => (
+const Page404 = withRouter((props) => (
   <Result
     status={404}
     title="404"
@@ -28,7 +28,7 @@ const Page404 = withRouter(props => (
   />
 ))
 
-const Page500 = withRouter(props => (
+const Page500 = withRouter((props) => (
   <Result
     status={500}
     title="500"

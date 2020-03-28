@@ -5,8 +5,8 @@ export default {
       response: {
         // mock 规则
         code: '0',
-        data: {}
-      }
-    }
-  }
+        data: {},
+      },
+    },
+  },
 }

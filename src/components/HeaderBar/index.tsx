@@ -5,7 +5,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  DownOutlined
+  DownOutlined,
 } from '@ant-design/icons'
 import { Dispatch, IRootState } from '@/store'
 import './index.less'
@@ -13,11 +13,11 @@ import './index.less'
 const { Header } = Layout
 
 const mapState = (state: IRootState) => ({
-  collapsed: state.main.collapsed
+  collapsed: state.main.collapsed,
 })
 
 const mapDispatch = (dispatch: Dispatch) => ({
-  toggleCollapsed: dispatch.main.toggleCollapsed
+  toggleCollapsed: dispatch.main.toggleCollapsed,
 })
 
 interface IHeaderBarProps
@@ -41,7 +41,7 @@ class HeaderBar extends PureComponent<IHeaderBarProps, null> {
       <Header
         className="header-wrapper"
         style={{
-          width: `calc(100% - ${this.props.collapsed ? '80px' : '250px'})`
+          width: `calc(100% - ${this.props.collapsed ? '80px' : '250px'})`,
         }}
       >
         <div className="left-menu">

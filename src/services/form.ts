@@ -4,8 +4,8 @@ import { ERROR_CODE } from '@/config/errors'
 const api = {
   submit: {
     url: '/api/v1/form',
-    method: 'post'
-  }
+    method: 'post',
+  },
 }
 
 export const form = {
@@ -19,5 +19,5 @@ export const form = {
     }
 
     return result
-  }
+  },
 }

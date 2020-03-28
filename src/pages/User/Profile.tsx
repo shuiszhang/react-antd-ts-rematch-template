@@ -13,12 +13,12 @@ const Profile = ({ getProfile }) => {
 const mapStateToProps = (state: IRootState) => {
   return {
     user: state.user,
-    loading: state.loading.effects.user.getProfile
+    loading: state.loading.effects.user.getProfile,
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getProfile: dispatch.user.getProfile
+  getProfile: dispatch.user.getProfile,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

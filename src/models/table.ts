@@ -7,15 +7,15 @@ export const table = createModel({
     pagination: {
       current: 0,
       pageSize: 15,
-      total: 0
+      total: 0,
     },
     modalVisible: false,
     tableDetail: {
       name: '',
       time: '',
       info1: '',
-      info2: ''
-    }
+      info2: '',
+    },
   },
 
   reducers: {
@@ -24,16 +24,16 @@ export const table = createModel({
     updateState(state, payload) {
       return {
         ...state,
-        ...payload
+        ...payload,
       }
     },
 
     hideModal(state, _payload) {
       return {
         ...state,
-        modalVisible: false
+        modalVisible: false,
       }
-    }
+    },
   },
 
   effects: () => ({
@@ -57,9 +57,9 @@ export const table = createModel({
     // 获取用户详情
     async asyncTableDetail(payload) {
       const result = await services.table.tableDetail({
-        tableId: payload.tableId
+        tableId: payload.tableId,
       })
       this.updateState(result)
-    }
-  })
+    },
+  }),
 })

@@ -6,7 +6,7 @@ export const account = createModel({
   state: {
     token: '',
     isLogin: false,
-    isRegister: false
+    isRegister: false,
   },
 
   reducers: {
@@ -15,9 +15,9 @@ export const account = createModel({
     updateState(state, payload) {
       return {
         ...state,
-        ...payload
+        ...payload,
       }
-    }
+    },
   },
 
   effects: () => ({
@@ -32,6 +32,6 @@ export const account = createModel({
     async asyncRegister(payload) {
       const result = await services.account.register(payload)
       this.updateState(result)
-    }
-  })
+    },
+  }),
 })

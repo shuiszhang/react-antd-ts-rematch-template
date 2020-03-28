@@ -15,7 +15,7 @@ class Bread extends PureComponent<RouteComponentProps, any> {
 
   genUrlNameMap = (routeArr: any = menu, result = {}) => {
     if (routeArr instanceof Array) {
-      routeArr.forEach(item => this.genUrlNameMap(item, result))
+      routeArr.forEach((item) => this.genUrlNameMap(item, result))
     } else if (routeArr instanceof Object) {
       result[routeArr.path] = routeArr.title
 
@@ -28,12 +28,14 @@ class Bread extends PureComponent<RouteComponentProps, any> {
   }
 
   render() {
-    const pathSnippets = this.props.location.pathname.split('/').filter(i => i)
+    const pathSnippets = this.props.location.pathname
+      .split('/')
+      .filter((i) => i)
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
       const url = `/${pathSnippets.slice(0, index + 1).join('/')}`
       let title = this.breadcrumbNameMap[url]
       if (!title) {
-        const tmp = Object.entries(this.breadcrumbNameMap).find(item =>
+        const tmp = Object.entries(this.breadcrumbNameMap).find((item) =>
           pathToRegexp(item[0]).test(url)
         )
         if (tmp) {

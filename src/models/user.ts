@@ -6,14 +6,14 @@ export const user = {
     updateState(state, payload) {
       return {
         ...state,
-        ...payload
+        ...payload,
       }
-    }
+    },
   },
   effects: () => ({
     async getProfile(payload) {
       const res = await services.user.getProfile(payload)
       this.updateState(res.data)
-    }
-  })
+    },
+  }),
 }

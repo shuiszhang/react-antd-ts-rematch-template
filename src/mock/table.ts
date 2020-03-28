@@ -14,17 +14,17 @@ export default {
               image: '@image(50x50)',
               status: '@boolean',
               email: '@email',
-              ip: '@ip'
-            }
+              ip: '@ip',
+            },
           ],
           pagination: {
             current: 1,
             pageSize: 10,
-            total: 30
-          }
-        }
-      }
-    }
+            total: 30,
+          },
+        },
+      },
+    },
   },
   '/api/v1/table/detail/:userId': {
     get: {
@@ -35,9 +35,9 @@ export default {
           name: '@cword(3)',
           time: '@datetime',
           info1: '@paragraph(1,3)',
-          info2: '@cparagraph(1,3)'
-        }
-      }
-    }
-  }
+          info2: '@cparagraph(1,3)',
+        },
+      },
+    },
+  },
 }

@@ -12,11 +12,11 @@ import { ERROR_CODE, ERROR_MESSAGE } from '@/config/errors'
 message.config({ maxCount: 1 })
 const instance = axios.create({
   // baseURL: process.env.BACKEND_URL,
-  timeout: +process.env.REQUEST_TIMEOUT
+  timeout: +process.env.REQUEST_TIMEOUT,
 })
 
 // 发送请求前，对数据进行处理
-const processRequest = config => {
+const processRequest = (config) => {
   const token = cookie.get('token')
   config.method = config.method || 'GET'
   if (token) {
@@ -43,7 +43,7 @@ const processRequest = config => {
 }
 
 // 请求返回成功后，对返回数据进行处理
-const processResponse = response => {
+const processResponse = (response) => {
   if (
     response &&
     response.config &&
@@ -69,15 +69,15 @@ const processResponse = response => {
 }
 
 // 请求返回错误后，对错误进行处理
-const processResponseError = error => {
+const processResponseError = (error) => {
   if (error && error.response && error.response.status === 401) {
     if (error.response.config.url.includes('login')) {
       // 登录接口鉴权失败
       return {
         code: ERROR_CODE.TOKEN_INVALID,
         data: {
-          token: ''
-        }
+          token: '',
+        },
       }
     } else {
       // 其他接口鉴权失败,即 token 失效
@@ -94,24 +94,24 @@ const processResponseError = error => {
 
 // 对请求进行拦截
 instance.interceptors.request.use(
-  config => {
+  (config) => {
     return processRequest(config)
   },
-  error => Promise.reject(error)
+  (error) => Promise.reject(error)
 )
 
 // 对返回进行拦截
 instance.interceptors.response.use(
-  response => {
+  (response) => {
     return processResponse(response)
   },
-  error => {
+  (error) => {
     return processResponseError(error)
   }
 )
 
 // 生成 mock 数据
-const processMock = api => {
+const processMock = (api) => {
   const style1 = 'background:#000;color:#bada55'
   const style2 = 'color:red'
 
@@ -166,24 +166,24 @@ const request = (
   if (urlParams) {
     api = {
       ...api,
-      url: compile(api.url)(urlParams)
+      url: compile(api.url)(urlParams),
     }
   }
 
   let config: any = {
     ...options,
-    ...api
+    ...api,
   }
 
   if (/get/i.test(api.method)) {
     config = {
       ...config,
-      params: data
+      params: data,
     }
   } else {
     config = {
       ...config,
-      data
+      data,
     }
   }
 

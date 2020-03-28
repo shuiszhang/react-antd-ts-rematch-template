@@ -3,7 +3,7 @@ import {
   RematchRootState,
   Models,
   ModelEffects,
-  ModelConfig
+  ModelConfig,
 } from '@rematch/core'
 import createLoadingPlugin from '@rematch/loading'
 import * as models from './models'
@@ -12,7 +12,7 @@ const loadingPlugin = createLoadingPlugin({})
 
 export type ExtractRematchLoadingFromEffects<
   effects extends ModelConfig['effects']
-> = effects extends ((...args: any[]) => infer R)
+> = effects extends (...args: any[]) => infer R
   ? R extends ModelEffects<any>
     ? ExtractRematchLoadingFromEffectsObject<R>
     : {}
@@ -36,7 +36,7 @@ interface ILoadingState<M extends Models> {
 
 export const store = init({
   models,
-  plugins: [loadingPlugin]
+  plugins: [loadingPlugin],
 })
 
 export type Store = typeof store

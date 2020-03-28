@@ -4,8 +4,8 @@ import { IResponse } from '@/schemas/common'
 
 const api = {
   getProfile: {
-    url: '/api/v1/profile'
-  }
+    url: '/api/v1/profile',
+  },
 }
 
 export const user = {
@@ -14,5 +14,5 @@ export const user = {
     if (res && res.code === ERROR_CODE.SUCCESS) {
       return res.data
     }
-  }
+  },
 }

@@ -11,9 +11,9 @@ export const form = createModel({
     updateState(state, payload) {
       return {
         ...state,
-        ...payload
+        ...payload,
       }
-    }
+    },
   },
 
   effects: () => ({
@@ -23,6 +23,6 @@ export const form = createModel({
     async asyncSubmit(payload) {
       const result = await services.form.submit(payload)
       console.log(result)
-    }
-  })
+    },
+  }),
 })

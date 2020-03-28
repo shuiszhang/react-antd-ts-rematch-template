@@ -1,20 +1,20 @@
 // 下划线转驼峰
-export const camelCase = str =>
+export const camelCase = (str) =>
   str.replace(/(-|_)+(.)?/g, (_match, _p1, p2) => (p2 ? p2.toUpperCase() : ''))
 
 // 驼峰转下划线
-export const underscoreCase = str =>
+export const underscoreCase = (str) =>
   str.replace(/([A-Z])/g, (_match, p1) => (p1 ? `_${p1.toLowerCase()}` : ''))
 
 // 驼峰&下划线互转
-const switchCase = fn => obj => {
+const switchCase = (fn) => (obj) => {
   if (obj instanceof Array) {
-    return obj.map(item => switchCase(fn)(item))
+    return obj.map((item) => switchCase(fn)(item))
   }
 
   if (obj instanceof Object) {
     const object = {}
-    Object.keys(obj).forEach(key => {
+    Object.keys(obj).forEach((key) => {
       object[fn(key)] = switchCase(fn)(obj[key])
     })
     return object
@@ -30,7 +30,7 @@ export const camelJson = switchCase(camelCase)
 export const underscoreJson = switchCase(underscoreCase)
 
 // 移除图片base64后的前缀
-export const removeBase64Prefix = str => str.replace(/.*base64,/, '')
+export const removeBase64Prefix = (str) => str.replace(/.*base64,/, '')
 
 /**
  * 从对象中拷贝指定字段
@@ -58,4 +58,4 @@ export const copyObjectByFields = (obj: object, fields: string[]) => {
  * 用法：delay(3000).then(() => console.log('Hello'))
  * @param t
  */
-export const delay = t => new Promise(resolve => setTimeout(resolve, t))
+export const delay = (t) => new Promise((resolve) => setTimeout(resolve, t))

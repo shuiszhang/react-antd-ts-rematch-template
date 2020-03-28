@@ -5,7 +5,7 @@ export default [
   {
     path: '/',
     icon: 'dashboard',
-    title: 'Dashboard'
+    title: 'Dashboard',
   },
   {
     path: '/error',
@@ -14,17 +14,17 @@ export default [
     children: [
       {
         path: '/403',
-        title: '403'
+        title: '403',
       },
       {
         path: '/404',
-        title: '404'
+        title: '404',
       },
       {
         path: '/500',
-        title: '500'
-      }
-    ]
+        title: '500',
+      },
+    ],
   },
   {
     path: '/table',
@@ -33,17 +33,17 @@ export default [
     children: [
       {
         path: '/table/base',
-        title: '基础表格'
+        title: '基础表格',
       },
       {
         path: '/table/advance',
-        title: '高级表格'
-      }
-    ]
+        title: '高级表格',
+      },
+    ],
   },
   {
     path: '/form',
     icon: 'form',
-    title: '表单示例'
-  }
+    title: '表单示例',
+  },
 ]

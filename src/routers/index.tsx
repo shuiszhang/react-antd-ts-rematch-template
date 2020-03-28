@@ -2,11 +2,11 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import Loadable from './loadable'
 
-export const renderRouter = config => {
+export const renderRouter = (config) => {
   return Object.entries(config).map((item: any) => {
     const props: any = {
       exact: true,
-      path: item[0]
+      path: item[0],
     }
 
     if (item[1] instanceof Object) {

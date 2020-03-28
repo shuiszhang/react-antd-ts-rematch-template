@@ -11,11 +11,11 @@ const FormItem = Form.Item
 
 const mapState = (state: IRootState) => ({
   isLogin: state.account.isLogin,
-  loading: state.loading.effects.account.asyncLogin
+  loading: state.loading.effects.account.asyncLogin,
 })
 
 const mapDispatch = (dispatch: Dispatch) => ({
-  login: dispatch.account.asyncLogin
+  login: dispatch.account.asyncLogin,
 })
 
 interface ILoginProps
@@ -24,7 +24,7 @@ interface ILoginProps
     Partial<ReturnType<typeof mapDispatch>> {}
 
 class Login extends Component<ILoginProps, any> {
-  handleSubmit = values => {
+  handleSubmit = (values) => {
     console.log('Received values of form: ', values)
     this.props.login(values)
   }

@@ -6,9 +6,9 @@ export default {
         // mock 规则
         code: '0',
         data: {
-          token: '@string(20)'
-        }
-      }
-    }
-  }
+          token: '@string(20)',
+        },
+      },
+    },
+  },
 }

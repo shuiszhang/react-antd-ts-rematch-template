@@ -5,14 +5,14 @@ import { IResponse } from '@/schemas/common'
 const api = {
   dashboard: {
     url: '/api/v1/dashboard',
-    method: 'get'
-  }
+    method: 'get',
+  },
 }
 
 export const dashboard = {
   async getData(data?) {
     let result = {
-      points: []
+      points: [],
     }
 
     const response: IResponse = await request(api.dashboard, data)
@@ -22,5 +22,5 @@ export const dashboard = {
     }
 
     return result
-  }
+  },
 }

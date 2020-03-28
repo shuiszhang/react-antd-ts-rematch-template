@@ -9,12 +9,12 @@ const { confirm } = Modal
 const mapState = (state: IRootState) => ({
   records: state.table.records,
   pagination: state.table.pagination,
-  loading: state.loading.effects.table.asyncTableList
+  loading: state.loading.effects.table.asyncTableList,
 })
 
 const mapDispatch = (dispatch: Dispatch) => ({
   tableList: dispatch.table.asyncTableList,
-  tableDelete: dispatch.table.asyncTableDelete
+  tableDelete: dispatch.table.asyncTableDelete,
 })
 
 interface IBasicProps
@@ -29,55 +29,55 @@ class Basic extends Component<IBasicProps, null> {
     this.columns = [
       {
         title: '中文',
-        dataIndex: 'name'
+        dataIndex: 'name',
       },
       {
         title: '英文',
-        dataIndex: 'id'
+        dataIndex: 'id',
       },
       {
         title: '数字',
-        dataIndex: 'count'
+        dataIndex: 'count',
       },
       {
         title: '时间',
-        dataIndex: 'time'
+        dataIndex: 'time',
       },
       {
         title: '邮箱',
-        dataIndex: 'email'
+        dataIndex: 'email',
       },
       {
         title: 'ip',
-        dataIndex: 'ip'
+        dataIndex: 'ip',
       },
       {
         title: '状态',
         dataIndex: 'status',
-        render: status => (status ? '真' : '假')
+        render: (status) => (status ? '真' : '假'),
       },
       {
         title: '图像',
         dataIndex: 'image',
-        render: image => <img src={image} alt="" />
+        render: (image) => <img src={image} alt="" />,
       },
       {
         title: '操作',
-        render: record => (
+        render: (record) => (
           <span
             className="btn-link"
             onClick={() => {
               confirm({
                 title: '确认删除?',
                 content: '是否确认删除',
-                onOk: this.handleDelete(record.id)
+                onOk: this.handleDelete(record.id),
               })
             }}
           >
             删除
           </span>
-        )
-      }
+        ),
+      },
     ]
   }
 
@@ -85,16 +85,16 @@ class Basic extends Component<IBasicProps, null> {
     this.props.tableList()
   }
 
-  handleDelete = tableId => () => {
+  handleDelete = (tableId) => () => {
     console.log(tableId)
     this.props.tableDelete({ tableId })
   }
 
-  pageOnChange = pagination => {
+  pageOnChange = (pagination) => {
     console.log(pagination)
     this.props.tableList({
       current: pagination.current,
-      pageSize: pagination.pageSize
+      pageSize: pagination.pageSize,
     })
   }
 

@@ -5,16 +5,16 @@ import { IResponse } from '@/schemas/common'
 const api = {
   tableList: {
     url: '/api/v1/table/query',
-    method: 'get'
+    method: 'get',
   },
   tableDelete: {
     url: '/api/v1/table/delete',
-    method: 'post'
+    method: 'post',
   },
   tableDetail: {
     url: '/api/v1/table/detail/:tableId',
-    method: 'get'
-  }
+    method: 'get',
+  },
 }
 
 export const table = {
@@ -23,14 +23,14 @@ export const table = {
       records: [],
       pagination: {
         current: 0,
-        total: 0
-      }
+        total: 0,
+      },
     }
 
     const response: IResponse = await request(api.tableList, data)
     if (response && response.code === ERROR_CODE.SUCCESS) {
       result = {
-        ...response.data
+        ...response.data,
       }
     }
 
@@ -53,18 +53,18 @@ export const table = {
       modalVisible: false,
       tableDetail: {
         name: '',
-        time: ''
-      }
+        time: '',
+      },
     }
 
     const response: IResponse = await request(api.tableDetail, data, urlParams)
     if (response && response.code === ERROR_CODE.SUCCESS) {
       result = {
         modalVisible: true,
-        tableDetail: response.data
+        tableDetail: response.data,
       }
     }
 
     return result
-  }
+  },
 }

@@ -14,21 +14,17 @@ const { Sider } = Layout
 const keyMaps = {
   '/403': {
     openKeys: ['/error'],
-    selectKeys: ['/403']
+    selectKeys: ['/403'],
   },
   '/404': {
     openKeys: ['/error'],
-    selectKeys: ['/404']
+    selectKeys: ['/404'],
   },
   '/500': {
     openKeys: ['/error'],
-    selectKeys: ['/500']
-  }
+    selectKeys: ['/500'],
+  },
 }
-
-interface ISideMenuProps
-  extends Partial<ReturnType<typeof mapState>>,
-    Partial<ReturnType<typeof mapDispatch>> {}
 
 interface ISideMenuState {
   collapsed: boolean
@@ -39,12 +35,16 @@ interface ISideMenuState {
 }
 
 const mapState = (state: IRootState) => ({
-  collapsed: state.main.collapsed
+  collapsed: state.main.collapsed,
 })
 
 const mapDispatch = (dispatch: Dispatch) => ({
-  toggleCollapsed: dispatch.main.toggleCollapsed
+  toggleCollapsed: dispatch.main.toggleCollapsed,
 })
+
+interface ISideMenuProps
+  extends Partial<ReturnType<typeof mapState>>,
+    Partial<ReturnType<typeof mapDispatch>> {}
 
 class SideMenu extends Component<ISideMenuProps, ISideMenuState> {
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -73,7 +73,7 @@ class SideMenu extends Component<ISideMenuProps, ISideMenuState> {
         ...prevState,
         pathname: nextProps.location.pathname,
         openKeys: open,
-        selectedKeys: select
+        selectedKeys: select,
       }
     }
 
@@ -84,7 +84,7 @@ class SideMenu extends Component<ISideMenuProps, ISideMenuState> {
         openKeys: !nextProps.collapsed ? prevState.preOpenKeys : [],
         preOpenKeys: !nextProps.collapsed
           ? prevState.preOpenKeys
-          : prevState.openKeys
+          : prevState.openKeys,
       }
     }
     return null
@@ -97,13 +97,13 @@ class SideMenu extends Component<ISideMenuProps, ISideMenuState> {
       pathname: '',
       selectedKeys: [],
       openKeys: [],
-      preOpenKeys: []
+      preOpenKeys: [],
     }
   }
 
   // 递归生成左侧菜单树
-  recurMenu = routerArr =>
-    routerArr.map(item => {
+  recurMenu = (routerArr) =>
+    routerArr.map((item) => {
       if (item.children && item.children.length > 0) {
         return (
           <SubMenu
@@ -130,18 +130,18 @@ class SideMenu extends Component<ISideMenuProps, ISideMenuState> {
     })
 
   handleSubMenuChange = ({ key }) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       if (prevState.openKeys && prevState.openKeys[0] === key) {
         return {
           ...prevState,
-          openKeys: []
+          openKeys: [],
         }
       }
 
       return {
         ...prevState,
         openKeys: [key],
-        preOpenKeys: [key]
+        preOpenKeys: [key],
       }
     })
   }
@@ -178,7 +178,4 @@ class SideMenu extends Component<ISideMenuProps, ISideMenuState> {
   }
 }
 
-export default connect(
-  mapState,
-  mapDispatch
-)(withRouter(SideMenu))
+export default connect(mapState, mapDispatch)(withRouter(SideMenu))

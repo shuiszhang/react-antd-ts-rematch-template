@@ -8,5 +8,5 @@
 export const mainRouters = {
   '/': 'Dashboard',
   '/table/base': 'Table/Basic',
-  '/table/advance': 'Table/Advance'
+  '/table/advance': 'Table/Advance',
 }

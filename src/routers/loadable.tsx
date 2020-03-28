@@ -26,12 +26,12 @@ const Loading = () => {
 }
 
 const AsyncComponent = loadable(
-  props => import(/* webpackPrefetch: true */ `@/pages/${props.path}`),
+  (props) => import(/* webpackPrefetch: true */ `@/pages/${props.path}`),
   {
-    fallback: <Loading />
+    fallback: <Loading />,
   }
 )
 
-const Loadable = path => () => <AsyncComponent path={path} />
+const Loadable = (path) => () => <AsyncComponent path={path} />
 
 export default Loadable
